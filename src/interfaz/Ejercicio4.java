@@ -20,6 +20,7 @@ public class Ejercicio4 extends javax.swing.JFrame {
     public Ejercicio4() {
         initComponents();
        this.setLocationRelativeTo(null);
+       txtLongitud.requestFocusInWindow();
        
        
     }
@@ -144,6 +145,11 @@ public class Ejercicio4 extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jButton6.setText("Calcular");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, 50));
 
         jButton7.setBackground(new java.awt.Color(153, 153, 255));
@@ -247,6 +253,34 @@ public class Ejercicio4 extends javax.swing.JFrame {
         txtLongitud.requestFocusInWindow();
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int aux=0, longitud;
+        
+        longitud=Integer.parseInt(txtLongitud.getText());
+        
+        double rep[]=new double [longitud];
+        
+        double numero;
+        
+        for (int i = 0; i < v.length; i++) {
+            numero= v[i];
+            
+            for (int j = 0; j < v.length; j++) {
+                if(v[j] == numero){
+                    rep[i]=rep[i]+1;
+                }
+            }
+        }
+        numero=0;
+        for (int i = 0; i < v.length; i++) {
+            if(numero < rep[i]){
+                numero = rep[i];
+                aux=i;
+            }
+        }
+        txtResultado.setText("el numero que mas se repite es el: "+v[aux]);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
